@@ -10,14 +10,15 @@ When you make a call to the MonitorNAS in FreeNAS (with param *?pg=detail*) you 
 
 
 = Modules of information =
-In MonitorNAS FrontEnd you select which information will be sended checking modules.
+In MonitorNAS Front-End you select which information will be sended checking modules.
 
 || *Item* || *Description* ||
 || _system_ || Contains system information ||
 || _diskspace_ || Contains disk space usage ||
 || _smb_ || Contains SMB/CIFS active files ||
 
-Note: Item is in XML, module is in FrontEnd.
+Note: Item is in XML, module is in Front-End.
+
 
 = Example of response =
 
