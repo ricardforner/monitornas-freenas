@@ -1,4 +1,4 @@
-#summary XML format response from MonitorNAS.
+#summary Status format response in XML.
 #labels XML
 
 = Introduction =
