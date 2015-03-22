@@ -1,0 +1,13 @@
+# Introduction #
+
+When you make a call to the MonitorNAS in FreeNAS (with param **?pg=config**) you receive a personalized XML with config information for the LCD and daemon.
+
+
+
+# Example of response #
+
+```
+<?xml version="1.0"?>
+<monitornas refresh="5" numchar="20,4">
+</monitornas>
+```

@@ -1,0 +1,73 @@
+# Introduction #
+
+When you make a call to the MonitorNAS in FreeNAS (with param **?pg=detail**) you receive a personalized XML with server information, like:
+  * System information.
+  * Disk space usage.
+  * SMB/CIFS open/active files.
+
+
+# Modules of information #
+In MonitorNAS Front-End you select which information will be sended checking modules.
+
+| **Item** | **Description** |
+|:---------|:----------------|
+| _system_ | Contains system information |
+| _diskspace_ | Contains disk space usage |
+| _smb_ | Contains SMB/CIFS active files |
+
+Note: Item is in XML, module is in Front-End.
+
+
+# Example of response #
+
+```
+<?xml version="1.0"?>
+<monitornas>
+	<item type="system">
+		<hostname>naspc.local</hostname>
+		<version>0.7.1</version>
+		<memory_percentage>12%</memory_percentage>
+		<memory_total>1938</memory_total>
+	</item>
+	<item type="diskspace">
+		<disc key="db45764b6526e50b">
+			<filesystem>/dev/ad1p1</filesystem>
+			<capacity>0%</capacity>
+			<used>20M</used>
+			<size>7.3G</size>
+			<available>6.7G</available>
+			<name>internal</name>
+		</disc>
+		<disc key="965c944c4bade625">
+			<filesystem>/dev/ad2p1</filesystem>
+			<capacity>10%</capacity>
+			<used>44G</used>
+			<size>451G</size>
+			<available>371G</available>
+			<name>share01</name>
+		</disc>
+	</item>
+	<item type="smb">
+		<listopen>
+			<pid>2352</pid>
+			<uid>21</uid>
+			<denymode>DENY_NONE</denymode>
+			<access>0x20089</access>
+			<rw>RDONLY</rw>
+			<oplock>EXCLUSIVE+BATCH</oplock>
+			<sharepath>/mnt/share01</sharepath>
+			<name>VIDEO/1,39 minutos 1080p.mpg</name>
+		</listopen>
+		<listopen>
+			<pid>2352</pid>
+			<uid>21</uid>
+			<denymode>DENY_NONE</denymode>
+			<access>0x100001</access>
+			<rw>RDONLY</rw>
+			<oplock>NONE</oplock>
+			<sharepath>/mnt/share01</sharepath>
+			<name>VIDEO</name>
+		</listopen>
+	</item>
+</monitornas>
+```
